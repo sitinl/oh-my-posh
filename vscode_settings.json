@@ -1,0 +1,20 @@
+{
+    "terminal.integrated.profiles.windows": {
+            "PowerShell": {
+                "source": "PowerShell",
+                "icon": "terminal-powershell",
+                "args": ["-NoExit", "-Command", "chcp 65001; $OutputEncoding = [System.Text.Encoding]::UTF8"]
+            },
+            "Command Prompt": {
+                "path": [
+                    "${env:windir}\\Sysnative\\cmd.exe",
+                    "${env:windir}\\System32\\cmd.exe"
+                ],
+                "args": ["/K chcp 65001 >nul"],
+                "icon": "terminal-cmd"
+            },
+            "Git Bash": {
+                "source": "Git Bash"
+            }
+    }
+}

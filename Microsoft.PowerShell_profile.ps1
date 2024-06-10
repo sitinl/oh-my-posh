@@ -81,3 +81,7 @@ Register-ArgumentCompleter -Native -CommandName az -ScriptBlock {
 }
 #タブ補完時に検索候補を複数表示したい
 Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
+
+#visual studio codeターミナル(powershellのdebug)に文字化けしないように
+#$OutputEncoding = [System.Text.Encoding]::UTF8 #この設定はvscodeのterminal.integrated.profiles.window->Powershell->argsに設定する
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
