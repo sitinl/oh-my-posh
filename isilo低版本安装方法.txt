@@ -1,0 +1,16 @@
+手机打开开发者选项
+USB调试 □ check
+
+在Windows终端下安装adb
+scoop install adb
+
+adb kill-server
+
+adb start-server
+
+adb devices
+
+adb push iSilo_base.apk /data/local/tmp (可能不用这步)
+adb shell pm install -r -d /data/local/tmp/iSilo_base.apk　(可能不用这步)
+
+adb install --bypass-low-target-sdk-block iSilo_base.apk
