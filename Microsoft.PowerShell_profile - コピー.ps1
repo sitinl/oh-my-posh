@@ -47,7 +47,8 @@ Set-PSReadLineKeyHandler -Chord Ctrl+n -Function NextHistory
 #あいまい検索ツールのfzfをGit管理を容易にしてくれるツールghqと組み合わせて使うことで、生産性が劇的に向上します
 #ターミナルのどこからでも、GitのProject一覧を検索して、そのディレクトリに移動することができるようになります。
 #scoop install ghq
-#scoop install fzf或いはInstall-Module -Name PSFzf
+#scoop install fzf
+#Install-Module -Name PSFzf
 #fzfのキーバインド
 Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
 #installしたら、gitconfigにrootとなるディレクトリを設定する必要があります

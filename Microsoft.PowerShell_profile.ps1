@@ -85,3 +85,12 @@ Set-PSReadLineKeyHandler -Key Tab -Function MenuComplete
 #visual studio codeターミナル(powershellのdebug)に文字化けしないように
 #$OutputEncoding = [System.Text.Encoding]::UTF8 #この設定はvscodeのterminal.integrated.profiles.window->Powershell->argsに設定する
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+
+#あいまい検索ツールのfzfをGit管理を容易にしてくれるツールghqと組み合わせて使うことで、生産性が劇的に向上します
+#ターミナルのどこからでも、GitのProject一覧を検索して、そのディレクトリに移動することができるようになります。
+#scoop install ghq
+#scoop install fzf或いはInstall-Module -Name PSFzf
+#fzfのキーバインド
+Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
+#installしたら、gitconfigにrootとなるディレクトリを設定する必要があります
+#git config --global ghq.root '~\source\repos'
