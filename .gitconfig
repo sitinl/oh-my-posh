@@ -1,0 +1,53 @@
+[user]
+	name = Hayashi-k
+	email = kenichi.hayashi.mg@east.ntt.co.jp
+
+# ##追加###
+[difftool]
+    prompt = false
+
+[difftool "WinMerge"]
+    cmd = 'C:/Program Files/WinMerge/WinMergeU.exe' -e -r -u -x -wl -wr -dl \"a/$MERGED\" -dr \"b/$MERGED\" \"$(cygpath -am \"$LOCAL\")\" \"$(cygpath -am \"$REMOTE\")\"
+    trustExitCode = false
+[merge]
+#	tool = winmerge # tool = meld 
+#   ff = false   # ff is merge option fast-forword
+    ff = no 
+[mergetool]
+    prompt = false
+    keepBackup = false
+[mergetool "WinMerge"]
+#    cmd = 'C:/Program Files/WinMerge/WinMergeU.exe' -e -u -fm -wl -wr -dl \"Mine File\" -dm \"Merge Result\" -dr \"Theirs File\" \"$LOCAL\" \"$MERGED\" \"$REMOTE\" -o \"$MERGED\"
+#    cmd = 'C:/Program Files/WinMerge/WinMergeU.exe' -u -wl -wr \"$REMOTE\" \"$MERGED\" \"$LOCAL\"
+	cmd = \"C:/Standalone Programs/WinMerge/WinMergeU.exe\" //r //e //u //wl //wr \"$LOCAL\" \"$BASE\" \"$REMOTE\" //o \"$MERGED\"
+    trustExitCode = false
+[alias]
+    windiff = difftool -y -d -t winmerge
+    winmerge = mergetool -y -t WinMerge
+    logg = log --graph --all --topo-order --decorate --oneline --date=iso --pretty=format:'%C(yellow)%h%Creset %C(cyan bold)%d%Creset %s %Cgreen[%cd]%Creset %C(bold blue)<%an>%Creset' --abbrev-commit --date=format-local:'%Y/%m/%d %H:%M:%S'
+    logga = log --graph --all --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset' --abbrev-commit --date=format-local:'%Y/%m/%d %H:%M:%S'
+    loggt = log --graph --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset' --abbrev-commit --date=format-local:'%Y/%m/%d %H:%M:%S'
+#   loggt = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    
+	push-f = push --force-with-lease
+[gui]
+	encoding = utf-8
+
+# [credential] セクション
+# Git の資格情報管理に関連する設定を行うセクションです
+# helper = wincred
+# Windows の資格情報マネージャー (Windows Credential Manager) を使用するように指定しています。
+# Windows に標準搭載されている資格情報管理機能を活用して、Git の認証情報を保存・取得します。
+[credential]
+	helper = wincred
+
+# git pull = git fetch + git merge. So whenever you pull from the remote server, 
+# you'd be creating an ugly merge commit when a simple fast-forward would be warranted. 
+# To solve this, set pull.ff to yes:
+[pull]
+	ff = yes
+	rebase = merges
+[fetch]
+	prune = true
+[ghq]
+	root = ~//source//repos
